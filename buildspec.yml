@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo "----- Installing dependencies -----"
+      - npm ci
+  build:
+    commands:
+      - echo "----- Build step (si aplica) -----"
+      - npm run build || echo "no build script, skipping"
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: no
